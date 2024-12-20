@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Прогнозирование доставки продуктов в бутики</title>
+        <style>
+            body {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.42857143;
+                margin: 40px;
+            }
+            form {
+                border: 1px solid #a0a0a0;
+                box-shadow: 0 0 10px 0 #969696;
+                padding: 20px;
+                width: 500px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            input {
+                width: 200px;
+            }
+            input[type="submit"] {
+                background-color: #428bca;
+                border-color: #357ebd;
+                border-radius: 4px;
+                color: #fff;
+                cursor: pointer;
+                font-size: 14px;
+                margin-top: 30px;
+                padding: 8px 28px;
+                width: 200px;
+            }
+            select {
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Прогнозирование доставки продуктов в бутики</h1>
+        <form method="post">
+            <p>
+                <label>Дата приёмки</label>
+                <input type="text" name="receive_date" placeholder="дд-мм-гггг" />
+            </p>
+            <p>
+                <label>Время приёмки</label>
+                <input type="text" name="receive_time" placeholder="чч:мм" />
+            </p>
+            <p>
+                <label>Клиентский заказ</label>
+                <select name="client_order">
+                    <option value="0">Нет</option>
+                    <option value="1">Да</option>
+                </select>
+            </p>
+            <p>
+                <label>Дата выдачи заказа клиенту</label>
+                <input type="text" name="output_date" placeholder="дд-мм-гггг" />
+            </p>
+            <p>
+                <label>Время выдачи заказа клиенту</label>
+                <input type="text" name="output_time" placeholder="чч:мм" />
+            </p>
+            <p>
+                <label>Кол-во текущего продукта, шт</label>
+                <input type="number" name="qty" min="0" />
+            </p>
+            <p>
+                <label>Общее кол-во везём в бутик, шт</label>
+                <input type="number" name="supply_volume" min="0" />
+            </p>
+
+            <p><input type="submit" value="Получить прогноз"></p>
+        </form>
+        {% if message %}
+        {{message}}
+        {% endif %}
+    </body>
+<html>
